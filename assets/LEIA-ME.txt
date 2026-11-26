@@ -1,0 +1,7 @@
+Coloque aqui o logotipo oficial da VRI com o nome exato:  logo_vri.png
+(fundo azul institucional #000099; recomendado PNG com ~600 x 220 px).
+
+O arquivo logo_vri.png incluído é apenas um PLACEHOLDER gerado automaticamente.
+Basta sobrescrevê-lo com o logotipo oficial: a interface e o PDF passam a usá-lo
+sem nenhuma alteração de código. Se o arquivo não existir, o sistema exibe um
+cabeçalho de texto "VRI" no lugar.
