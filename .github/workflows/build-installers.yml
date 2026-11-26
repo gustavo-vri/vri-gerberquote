@@ -45,7 +45,9 @@ jobs:
         shell: pwsh
         run: |
           if (!(Test-Path "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe")) { choco install innosetup -y --no-progress }
-          $ver = (Select-String -Path core/version.py -Pattern '"(.+)"').Matches[0].Groups[1].Value
+          $ver = (Select-String -Path core/version.py -Pattern '__version__\s*=\s*"([^"]+)"').Matches[0].Groups[1].Value
+          Write-Host "Versao: $ver"
+          if ($ver -notmatch '^[0-9]+(\.[0-9]+)*$') { throw "Versao invalida em core/version.py: $ver" }
           & "${env:ProgramFiles(x86)}\Inno Setup 6\ISCC.exe" "/DAppVersion=$ver" packaging/windows/VRI_GerberQuote.iss
       - uses: actions/upload-artifact@v4
         with:
